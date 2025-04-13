@@ -1,4 +1,5 @@
 import React from 'react';
+import Navbar from '../components/Navbar';
 
 const datasetInfo = [
   {
@@ -49,47 +50,51 @@ const datasetInfo = [
 
 const About = () => {
   return (
-    <div className="bg-white min-h-screen px-4 py-8">
-      <div className="max-w-5xl mx-auto space-y-8">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold mb-2">Chronic Kidney Disease (CKD) Datasets</h1>
-          <p className="text-blue-600 text-sm">
-            Your uploaded csv file should contain the same features as the datasets listed below respectively.
-          </p>
-        </div>
+    <>
+      <Navbar />
 
-        {datasetInfo.map((dataset, index) => (
-          <div key={index} className="bg-blue-50 rounded-xl shadow p-6">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
-              <h2 className="text-lg font-semibold text-blue-500">
-                Dataset {index + 1}: {dataset.name}
-              </h2>
-              <a
-                href={dataset.kaggleLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 md:mt-0 inline-block bg-blue-100 hover:bg-blue-200 text-blue-700 px-4 py-1 rounded-full text-sm transition"
-              >
-                Kaggle Link
-              </a>
-            </div>
-            <div>
-              <h3 className="text-blue-600 font-semibold mb-2">Features:</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-                {dataset.features.map((feature, i) => (
-                  <span
-                    key={i}
-                    className="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full border border-blue-200"
-                  >
-                    {feature}
-                  </span>
-                ))}
+      <div className="bg-gray-100 bg-[radial-gradient(#d1d5db_1px,transparent_1px)] [background-size:20px_20px] min-h-screen px-4 py-8">
+        <div className="max-w-5xl mx-auto space-y-8">
+          <div className="text-center">
+            <h1 className="text-3xl font-bold mb-2">Chronic Kidney Disease (CKD) Datasets</h1>
+            <p className="text-blue-600 text-sm">
+              Your uploaded csv file should contain the same features as the datasets listed below respectively.
+            </p>
+          </div>
+
+          {datasetInfo.map((dataset, index) => (
+            <div key={index} className="bg-blue-50 rounded-xl shadow p-6">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                <h2 className="text-lg font-semibold text-blue-500">
+                  Dataset {index + 1}: {dataset.name}
+                </h2>
+                <a
+                  href={dataset.kaggleLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 md:mt-0 inline-block bg-blue-100 hover:bg-blue-200 text-blue-700 px-4 py-1 rounded-full text-sm transition"
+                >
+                  Kaggle Link
+                </a>
+              </div>
+              <div>
+                <h3 className="text-blue-600 font-semibold mb-2">Features:</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+                  {dataset.features.map((feature, i) => (
+                    <span
+                      key={i}
+                      className="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full border border-blue-200"
+                    >
+                      {feature}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
